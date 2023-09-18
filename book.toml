@@ -1,0 +1,6 @@
+[book]
+authors = ["Jure Taslak", "Andrej Bauer"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Enumerion documentation"

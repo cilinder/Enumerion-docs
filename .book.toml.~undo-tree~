@@ -1,7 +1,0 @@
-(undo-tree-save-format-version . 1)
-"743cd8edebc6c900d6e2e45505b5bd0686973b89"
-[nil nil nil nil (25864 45137 68182 39000) 0 nil]
-([nil nil ((#("cilinder" 0 8 (face font-lock-string-face fontified t)) . 20) (t 25860 56251 282178 107000)) nil (25864 45137 68179 106000) 0 nil])
-([nil nil ((20 . 31)) nil (25864 45137 68177 220000) 0 nil])
-([nil current ((32 . 48)) nil (25864 45137 68172 471000) 0 nil])
-nil

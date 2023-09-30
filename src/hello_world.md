@@ -10,7 +10,7 @@ First run enumerion.
 
 This should give us the basic REPL.
 
-```
+```Enumerion
 Enumerion
 # 
 ```
@@ -19,11 +19,19 @@ You can exit Enumerion with `Ctrl + D`.
 
 We have the natural numbers and numbers from `0` to `n-1`.
 
+```Enumerion
+def X := structure { x : 4 = 3; y : Fin 4 }
+def V := variant { `foo ℕ | `boo Fin 5 }
+check Nat
+check True && False
+def Y := product (x : Fin 4), Fin (x + 1 * 3 - 2)
 ```
-# check nat
+
+```Enumerion
+# check Nat
 ℕ
      : Enum
-# check Fin 5
+# check Fin 3
 Fin 5
      : Finite
 ```
@@ -32,7 +40,7 @@ We see that Enumerion keeps track of the "enumerability" of these types, and it 
 
 We can ask Enumerion to enumerate `Fin 5`.
 
-```
+```enum
 # enumerate Fin 5
 0
 1
@@ -50,14 +58,14 @@ Let's enumerate all the monotone functions from `Fin 5` to `Fin 2`.
 
 First define the structure we are going to enumerate.
 
-```
+```enum
 # def monotone := structure { f : Fin 5 -> Fin 2; axiom monotone : forall (x y : Fin 5), x <= y -> f x <= f y }
 monotone is defined.
 ```
 
 Now enumerate it.
 
-```
+```enum
 # enumerate monotone
 
 {f := {2 ↦ 0, 4 ↦ 0, 0 ↦ 0, 1 ↦ 0, 3 ↦ 0}}

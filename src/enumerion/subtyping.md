@@ -29,7 +29,7 @@ provide such a proof, since `n` and `m` may be arbitrary terms of type `Nat`.
 For instance if we defined `m := n * n`, we would have to provide a proof of
 `∀ (n : ℕ), n <= n * n`, which requires the induction principle on `ℕ`.
 
-Currently, we don't attempt to prove such propositions and simply assume it hold,
+Currently, we don't attempt to prove such propositions and simply assume it holds,
 and issue the user a warning that we made such an assumption.
 
 ```enum

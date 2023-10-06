@@ -103,6 +103,8 @@ We define a new structure using the `structure` keyword, then list the fields be
 separated by semi-colons.
 We denote each field of the structure as a pair `<lbl> : <type>`, where `<lbl>` is the name of the
 field and `<type>` its type.
+There is another kind of field a structure can have called an *axiom* of the structure.
+We denote it by `axiom <lbl> : <type>`. More on this in the [propositions](#propositions) section.
 
 ```enum
 # def S := structure { x : Nat; y : Fin x }
@@ -183,3 +185,37 @@ ite
 
 ## Propositions
 
+A special type in Enumerion is the universe of propositions `Prop`. It is meant to capture the
+decidable propositions on types. Elements of `Prop` are the propositions.
+
+We have the following propositions available:
+
+- `True` is the true proposition. It has one element, denoted `*`.
+- `False`is the false proposition. It has no elements.
+- Implication `p ⇒ q` for propositions `p q : Prop`.
+- Conjunction `p ∧ q` (or `p && q`) for propositions `p q : Prop`.
+- Disjunction `p ∨ q` (or `p || q`) for propositions `p q : Prop`.
+- Negation `¬ p` (or `not p`) for proposition `p : Prop`.
+- Existential quantification `∃ (x : A), p x` (or `exists (x : A), p x`) for a predicate `p : A →
+  Prop`.
+- Universal quantification `∀ (x : A), p x` (or `forall (x : A), p x`) for a predicate `p : A →
+  Prop`.
+- Equality `a = b` where `a : A`, `b : B` and `A ≤ B` or `B ≤ A`.
+
+In Enumerion we typically don't want to construct proofs of propositions by hand. We export the
+computation to Enumix, which then computes its truth value.
+
+Of the propositions, equality is special. For elements `a₁, a₂ : A` the proposition `a₁ = a₂`
+is suppose to mean `a₁` *is isomorphic to* `a₂`.
+
+We use propositions to describe properties fields of a structure have to satisfy.
+For examples, the type of all function from `Fin 4` to `Fin 3` that have no fixed points can be
+described as
+
+```enum
+def S := structure {
+	f : Fin 3 → Fin 3;
+	axiom no_fixed_pt : ∀ (x : Fin 3), ¬ (f x = x);
+}
+enumerate S
+```

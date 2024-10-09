@@ -20,6 +20,7 @@
 - [Syntax](enumerion/syntax.md)
 - [Type theory of Enumerion](enumerion/type_theory.md)
   - [Subtyping](enumerion/subtyping.md)
+- [Typechecking](enumerion/typechecking.md)
 
 ## Enumix
 

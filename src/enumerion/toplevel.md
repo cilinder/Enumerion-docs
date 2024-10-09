@@ -2,6 +2,20 @@
 
 <!-- toc -->
 
+The syntax for toplevel commands is
+
+```
+toplevel_cmd ::= load <filename>
+                 | def <varname> := <expr>
+                 | check <expr> (: <type>)
+                 | eval <expr>
+                 | enumerate <type>
+                 | axiom <varname> := <type>
+                 | clean
+```
+
+where `<expr>` and `<type>` are both just Enumerion [expressions](syntax.md#expressions). They are denoted differently because in certain places we expect an expression to be a type itself. As far as the syntax is concerned, there is no difference, this only comes into effect in the [typechecking phase](typechecking.md).
+
 ### load
 
 Syntax: `load <filename>`
@@ -16,9 +30,9 @@ load "examples/category.enum"
 
 ### def
 
-Syntax: `def <var> := expr`
+Syntax: `def <varname> := expr`
 
-Evaluate the Enumerion expression `expr` and store it in the variable `<var>`.
+Evaluate the Enumerion expression `expr` and store it in the variable `<varname>`.
 ##### Example
 
 ```enum
@@ -82,7 +96,6 @@ Syntax: `eval <expr>`
 
 Evaluate the expression `<expr>` and print the value.
 
-
 ##### Example
 
 ```enum
@@ -93,9 +106,9 @@ Evaluate the expression `<expr>` and print the value.
 
 ### axiom
 
-Syntax: `axiom <var> : <type>`
+Syntax: `axiom <varname> : <type>`
 
-Check that `<type>` is a type and add the assumption that `<var>` is a value of that type to the context.
+Check that `<type>` is a type and add the assumption that `<varname>` is a value of that type to the context.
 
 ##### Example
 

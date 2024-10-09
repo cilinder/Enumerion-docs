@@ -8,6 +8,17 @@ Here we describe the syntax of Enumerion
 
 Enumerion has types and terms. A special subset of the terms are the [propositions](#propositions).
 
+The syntax for expressions is
+
+```
+expression ::= lambda_expression
+               | function_expression
+               | quantifier_expression
+               | let_expression
+               | match_expression
+               | infix_expression : expression
+```
+
 ## Types
 
 It has some builtin types:
